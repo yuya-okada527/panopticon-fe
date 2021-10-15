@@ -2,9 +2,12 @@
   <v-content>
     <v-container>
       <v-layout wrap>
-        <v-flex md4 v-for="status in statusList" :key="status">
-          <v-card class="mx-4">
+        <v-flex md4 v-for="(tasks, status) in statuses" :key="status">
+          <v-card color="#eeeeee" class="mx-4">
             <v-card-title>{{ status }}</v-card-title>
+            <v-card v-for="task in tasks" :key="task">
+              <v-card-title>{{ task }}</v-card-title>
+            </v-card>
           </v-card>
         </v-flex>
       </v-layout>
@@ -18,7 +21,13 @@ import Vue from "vue";
 export default Vue.extend({
   name: "Home",
   data: () => {
-    return { statusList: ["Todo", "Doing", "Done"] };
+    return {
+      statuses: {
+        Todo: ["task1"],
+        Doing: ["task2", "task2"],
+        Done: ["task4"],
+      },
+    };
   },
 });
 </script>

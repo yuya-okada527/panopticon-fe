@@ -1,4 +1,4 @@
-name: FE
+name: CI Actions
 
 on:
   push:
@@ -26,4 +26,5 @@ jobs:
       - name: "Upload coverage to Codecov"
         uses: codecov/codecov-action@v2
         with:
+          directory: ./coverage/
           fail_ci_if_error: true

@@ -22,7 +22,7 @@ jobs:
       - name: Lint
         run: yarn lint
       - name: Unit test
-        run: yarn test:unit
+        run: yarn test:unit:cov
       - name: "Upload coverage to Codecov"
         uses: codecov/codecov-action@v2
         with:

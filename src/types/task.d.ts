@@ -1,10 +1,12 @@
-type Task = {
+export type Status = "todo" | "doing" | "done";
+
+export type Task = {
   id: number;
   name: string;
-  status: "todo" | "doing" | "done";
+  status: Status;
 };
 
-type SearchTasksResponse = {
+export type SearchTasksResponse = {
   page: number;
   available_page: number;
   num: number;

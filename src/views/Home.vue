@@ -16,12 +16,12 @@
             <v-card class="mx-2 mt-4">
               <v-form class="px-1 pt-4">
                 <v-textarea dense outlined height="50" class="mx-2" />
-                <v-layout class="pb-2">
-                  <v-flex md6>
-                    <v-btn color="primary" class="mx-5 px-8">Add</v-btn>
-                  </v-flex>
-                  <v-flex><v-btn>Cancel</v-btn></v-flex>
-                </v-layout>
+                <v-row class="mx-1 pb-2">
+                  <v-col align="center">
+                    <v-btn color="primary" class="px-8">Add</v-btn>
+                  </v-col>
+                  <v-col align="center"><v-btn>Cancel</v-btn></v-col>
+                </v-row>
               </v-form>
             </v-card>
           </v-card>

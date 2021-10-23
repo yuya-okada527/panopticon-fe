@@ -5,7 +5,12 @@
         <v-flex md4 v-for="[status, tasks] in statuses" :key="status">
           <v-card color="#eeeeee" class="mx-4" height="600px">
             <v-card-title>{{ status }}</v-card-title>
-            <task-card v-for="task in tasks" :task="task" :key="task.id" />
+            <task-card
+              v-for="task in tasks"
+              :task="task"
+              :key="task.id"
+              @deleteTask="deleteTask"
+            />
             <task-form :status="status" @addTask="handleAddEvent" />
           </v-card>
         </v-flex>
@@ -31,6 +36,9 @@ export default Vue.extend({
   },
   methods: {
     handleAddEvent() {
+      this.refreshTasks();
+    },
+    deleteTask() {
       this.refreshTasks();
     },
     refreshTasks() {

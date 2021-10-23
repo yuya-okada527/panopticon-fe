@@ -14,7 +14,9 @@ describe("TaskCard", () => {
         },
         stubs: ["router-link"],
       });
-      expect(wrapper.text()).toBe("Test Name");
+      expect(wrapper.find("[data-test-id='task-card-title']").text()).toBe(
+        "Test Name"
+      );
     });
   });
 });

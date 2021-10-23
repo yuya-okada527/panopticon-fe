@@ -6,7 +6,9 @@
     >
       <v-layout>
         <v-flex md8>
-          <v-card-title>{{ task.name }}</v-card-title>
+          <v-card-title data-test-id="task-card-title">{{
+            task.name
+          }}</v-card-title>
         </v-flex>
         <v-flex align-self-center>
           <v-btn color="error" @click.prevent="handleDelete">Delete</v-btn>

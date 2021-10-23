@@ -6,7 +6,7 @@
         <v-col align="center">
           <v-btn color="primary" class="px-8" @click="addTask">Add</v-btn>
         </v-col>
-        <v-col align="center"><v-btn>Cancel</v-btn></v-col>
+        <v-col align="center"><v-btn @click="cancel">Cancel</v-btn></v-col>
       </v-row>
     </v-form>
   </v-card>
@@ -38,6 +38,9 @@ export default Vue.extend({
       });
       this.name = "";
       this.$emit("addTask");
+    },
+    cancel() {
+      this.name = "";
     },
   },
 });

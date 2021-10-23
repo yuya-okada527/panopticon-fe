@@ -5,14 +5,7 @@
         <v-flex md4 v-for="[status, tasks] in statuses" :key="status">
           <v-card color="#eeeeee" class="mx-4" height="600px">
             <v-card-title>{{ status }}</v-card-title>
-            <v-card v-for="task in tasks" :key="task.id" class="mx-2 mt-1">
-              <router-link
-                :to="{ name: 'Task', params: { task_id: task.id } }"
-                style="text-decoration: none"
-              >
-                <v-card-title>{{ task.name }}</v-card-title>
-              </router-link>
-            </v-card>
+            <task-card v-for="task in tasks" :task="task" :key="task.id" />
             <task-form :status="status" @addTask="handleAddEvent" />
           </v-card>
         </v-flex>
@@ -26,9 +19,10 @@ import Vue from "vue";
 import axios from "axios";
 import { SearchTasksResponse, Status, Task } from "@/types/task";
 import TaskForm from "@/components/molecules/TaskForm.vue";
+import TaskCard from "@/components/atoms/TaskCard.vue";
 
 export default Vue.extend({
-  components: { TaskForm },
+  components: { TaskForm, TaskCard },
   name: "Home",
   data: () => {
     return {

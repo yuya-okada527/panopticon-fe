@@ -10,10 +10,19 @@
                 :to="{ name: 'Task', params: { task_id: task.id } }"
                 style="text-decoration: none"
               >
-                <v-card-title class="task-card-title">{{
-                  task.name
-                }}</v-card-title>
+                <v-card-title>{{ task.name }}</v-card-title>
               </router-link>
+            </v-card>
+            <v-card class="mx-2 mt-4">
+              <v-form class="px-1 pt-4">
+                <v-textarea dense outlined height="50" class="mx-2" />
+                <v-layout class="pb-2">
+                  <v-flex md6>
+                    <v-btn color="primary" class="mx-5 px-8">Add</v-btn>
+                  </v-flex>
+                  <v-flex><v-btn>Cancel</v-btn></v-flex>
+                </v-layout>
+              </v-form>
             </v-card>
           </v-card>
         </v-flex>
@@ -51,9 +60,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style scoped>
-.task-card-title {
-  text-decoration: none;
-}
-</style>

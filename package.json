@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
+    "test:unit:watch": "vue-cli-service test:unit --watch",
     "test:unit:cov": "vue-cli-service test:unit --coverage",
     "test:e2e": "cypress open",
     "lint": "vue-cli-service lint",

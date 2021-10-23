@@ -6,7 +6,14 @@
           <v-card color="#eeeeee" class="mx-4" height="600px">
             <v-card-title>{{ status }}</v-card-title>
             <v-card v-for="task in tasks" :key="task.id" class="mx-2 mt-1">
-              <v-card-title>{{ task.name }}</v-card-title>
+              <router-link
+                :to="{ name: 'Task', params: { task_id: task.id } }"
+                style="text-decoration: none"
+              >
+                <v-card-title class="task-card-title">{{
+                  task.name
+                }}</v-card-title>
+              </router-link>
             </v-card>
           </v-card>
         </v-flex>
@@ -44,3 +51,9 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style scoped>
+.task-card-title {
+  text-decoration: none;
+}
+</style>

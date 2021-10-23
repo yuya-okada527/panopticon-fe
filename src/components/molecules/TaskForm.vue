@@ -30,6 +30,9 @@ export default Vue.extend({
   },
   methods: {
     addTask() {
+      if (!this.name) {
+        return;
+      }
       const data = JSON.stringify({ name: this.name, status: this.status });
       axios.post("http://localhost:8000/v1/tasks", data, {
         headers: {

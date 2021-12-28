@@ -1,12 +1,5 @@
 <template>
   <div>
-    <NuxtWelcome />
-    <div class="hoge">HOGE</div>
+    <NuxtPage />
   </div>
 </template>
-
-<style lang="scss">
-.hoge {
-  color: red;
-}
-</style>

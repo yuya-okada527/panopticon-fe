@@ -2,7 +2,9 @@
   <h1 class="hoge">HOGE</h1>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts">
+const hoge = "hoge";
+</script>
 
 <style lang="scss">
 .hoge {

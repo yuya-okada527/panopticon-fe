@@ -1,12 +1,15 @@
 <template>
   <div>
     <AppHeader />
-    <NuxtPage />
+    <main class="main">
+      <AppSidebar />
+      <NuxtPage />
+    </main>
   </div>
 </template>
 
 <style scoped lang="scss">
-body {
-  margin: 0;
+.main {
+  display: flex;
 }
 </style>

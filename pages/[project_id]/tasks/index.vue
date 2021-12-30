@@ -1,5 +1,5 @@
 <template>
-  <h1 class="hoge">HOGE</h1>
+  <h1 class="hoge">pages</h1>
 </template>
 
 <script lang="ts">

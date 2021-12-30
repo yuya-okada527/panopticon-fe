@@ -11,5 +11,6 @@
 }
 .title {
   margin: 0;
+  padding: 12px;
 }
 </style>

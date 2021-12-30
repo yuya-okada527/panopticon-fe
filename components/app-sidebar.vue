@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <ul>
+  <div class="sidebar">
+    <ul class="menu-list">
       <li v-for="menu in menus" :key="menu.name">
-        <NuxtLink :to="menu.to">{{ menu.name }}</NuxtLink>
+        <NuxtLink :to="menu.to" class="link">{{ menu.name }}</NuxtLink>
       </li>
     </ul>
   </div>
@@ -37,4 +37,27 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.sidebar {
+  border-right: 1px solid grey;
+  width: 200px;
+  height: 100vh;
+  margin-right: 16px;
+}
+.menu-list {
+  list-style-type: none;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.link {
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 12px;
+  display: block;
+  &:hover {
+    background-color: grey;
+    border-radius: 12px;
+    opacity: 0.8;
+  }
+}
+</style>

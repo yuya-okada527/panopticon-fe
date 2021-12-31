@@ -3,7 +3,7 @@
     <div class="name">
       {{ state.provider.name }}
     </div>
-    <div>URL: {{ state.provider.provider_url }}</div>
+    <div>URL : {{ state.provider.provider_url }}</div>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="header">
       <h2>Providers</h2>
     </div>
     <ul class="provider-cards">
@@ -36,6 +36,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.header {
+  display: flex;
+}
 .provider-cards {
   width: 640px;
 }

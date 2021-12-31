@@ -22,6 +22,7 @@ import ApiUrls from "~~/network/static/api-urls";
 export default defineComponent({
   async setup() {
     const route = useRoute();
+    const router = useRouter();
     const { data: tasks } = await useFetch(
       ApiUrls.getTasksUrl(route.params.project_id)
     );
@@ -41,8 +42,7 @@ export default defineComponent({
     // );
 
     const onAddButtonClick = () => {
-      // TODO: タスクの作成ページに遷移
-      console.log("click");
+      router.push(`/${route.params.project_id}/new_task`);
     };
     return {
       createdTasks,

@@ -20,7 +20,7 @@
     <textarea
       v-model="state.task.description"
       name="description"
-      id="4"
+      id="description"
       cols="80"
       rows="30"
     >

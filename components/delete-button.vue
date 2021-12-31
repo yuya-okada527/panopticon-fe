@@ -18,6 +18,9 @@
   background-size: 0.1em 0.8em;
   background-repeat: no-repeat;
   cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+  }
 }
 /* 蓋 */
 .trash::before {

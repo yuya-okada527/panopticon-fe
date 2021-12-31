@@ -74,7 +74,6 @@ export default defineComponent({
       state,
       onUpdateIconClick,
       parsedHtml,
-      onChange,
     };
   },
   components: { SyncIcon },

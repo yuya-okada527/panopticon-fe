@@ -6,4 +6,6 @@ export default class ApiUrls {
     project_id: string | string[],
     task_id: string | string[]
   ) => `${this.API_URL}/v1/projects/${project_id}/tasks/${task_id}`;
+  static getTaskProvidersUrl = (project_id: string | string[]) =>
+    `${this.API_URL}/v1/projects/${project_id}/task_providers`;
 }

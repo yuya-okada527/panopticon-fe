@@ -2,9 +2,9 @@
   <div>
     <div class="header">
       <h2>{{ state.task.name }}</h2>
-      <a :href="state.task.external_url" class="external-link">{{
-        "#" + state.task.id
-      }}</a>
+      <a :href="state.task.external_url" class="external-link">
+        {{ "#" + state.task.id }}
+      </a>
     </div>
     <div class="status">
       <label for="status">Status: </label>
@@ -16,8 +16,13 @@
         <option value="closed">Closed</option>
       </select>
     </div>
-    <textarea name="" id="4" cols="80" rows="30">
-      {{ state.task.description }}
+    <textarea
+      v-model="state.task.description"
+      name="description"
+      id="4"
+      cols="80"
+      rows="30"
+    >
     </textarea>
   </div>
 </template>

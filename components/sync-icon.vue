@@ -4,7 +4,7 @@
 
 <style lang="scss" scoped>
 .update-icon {
-  font-size: 16px;
+  font-size: 12px;
   position: relative;
   margin: 12px;
   width: 1.2em;
@@ -29,6 +29,9 @@
     border-bottom: 0.4em solid transparent;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
+  }
+  &:hover {
+    opacity: 0.7;
   }
 }
 </style>

@@ -9,7 +9,5 @@
     "nuxt3": "latest",
     "sass": "^1.45.1"
   },
-  "dependencies": {
-    "axios": "^0.24.0"
-  }
+  "dependencies": {}
 }

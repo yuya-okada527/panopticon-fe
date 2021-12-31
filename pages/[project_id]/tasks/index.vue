@@ -7,9 +7,9 @@
       <ul class="task-board">
         <li><TaskList status="Created" :tasks="createdTasks" /></li>
         <li><TaskList status="Todo" :tasks="todoTasks" /></li>
-        <li><TaskList status="Doing" /></li>
-        <li><TaskList status="Done" /></li>
-        <li><TaskList status="Closed" /></li>
+        <li><TaskList status="Doing" :tasks="doingTasks" /></li>
+        <li><TaskList status="Done" :tasks="doneTasks" /></li>
+        <li><TaskList status="Closed" :tasks="closedTasks" /></li>
       </ul>
     </div>
   </div>
@@ -46,6 +46,9 @@ export default defineComponent({
     return {
       createdTasks,
       todoTasks,
+      doingTasks,
+      doneTasks,
+      closedTasks,
     };
   },
 });

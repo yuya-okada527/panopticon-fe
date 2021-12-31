@@ -50,12 +50,13 @@ export default defineComponent({
   padding-right: 16px;
 }
 .link {
+  color: #444;
   font-size: 1.2rem;
   text-decoration: none;
   padding: 12px;
   display: block;
   &:hover {
-    background-color: grey;
+    background-color: rgba(200, 200, 200, 0.5);
     border-radius: 12px;
     opacity: 0.8;
   }

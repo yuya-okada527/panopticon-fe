@@ -9,7 +9,6 @@
         <li><TaskList status="Todo" :tasks="todoTasks" /></li>
         <li><TaskList status="Doing" :tasks="doingTasks" /></li>
         <li><TaskList status="Done" :tasks="doneTasks" /></li>
-        <li><TaskList status="Closed" :tasks="closedTasks" /></li>
       </ul>
     </div>
   </div>
@@ -40,15 +39,14 @@ export default defineComponent({
     // @ts-ignore
     const doneTasks = tasks.value.filter((t) => t.status === TaskStatus.DONE);
     // @ts-ignore
-    const closedTasks = tasks.value.filter(
-      (t) => t.status === TaskStatus.CLOSED
-    );
+    // const closedTasks = tasks.value.filter(
+    //   (t) => t.status === TaskStatus.CLOSED
+    // );
     return {
       createdTasks,
       todoTasks,
       doingTasks,
       doneTasks,
-      closedTasks,
     };
   },
 });

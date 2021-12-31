@@ -17,7 +17,12 @@
         <option value="closed">Closed</option>
       </select>
     </div>
+    <div>
+      <label for="preview">Preview</label>
+      <input v-model="state.previewMarkdown" type="checkbox" id="preview" />
+    </div>
     <textarea
+      v-if="state.previewMarkdown"
       v-model="state.task.description"
       name="description"
       id="description"
@@ -25,15 +30,18 @@
       rows="30"
     >
     </textarea>
+    <div v-else v-html="parsedHtml"></div>
   </div>
 </template>
 
 <script lang="ts">
 import ApiUrls from "~~/network/static/api-urls";
 import SyncIcon from "~~/components/sync-icon.vue";
+import { marked } from "marked";
 
 type State = {
   task: any;
+  previewMarkdown: boolean;
 };
 
 export default defineComponent({
@@ -42,9 +50,10 @@ export default defineComponent({
     const { data: task } = await useFetch(
       ApiUrls.getTaskUrl(route.params.project_id, route.params.task_id)
     );
-    const state: State = {
+    const state: State = reactive({
       task: task.value,
-    };
+      previewMarkdown: false,
+    });
     const onUpdateIconClick = async () => {
       await useFetch(
         ApiUrls.getTaskUrl(route.params.project_id, route.params.task_id),
@@ -58,9 +67,18 @@ export default defineComponent({
         }
       );
     };
+    const onChange = (event) => {
+      console.log(state.previewMarkdown);
+      console.log(event);
+    };
+    const parsedHtml = computed(() => {
+      return marked(state.task.description);
+    });
     return {
       state,
       onUpdateIconClick,
+      parsedHtml,
+      onChange,
     };
   },
   components: { SyncIcon },

@@ -6,6 +6,8 @@
         <NuxtLink
           :to="`/${$route.params.project_id}/task/${task.id}`"
           class="task-card"
+          draggable="true"
+          @dragstart="$emit('dragstart', task.id)"
         >
           {{ abbreviate(task.name) }}
         </NuxtLink>

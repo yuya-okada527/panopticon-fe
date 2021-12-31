@@ -2,6 +2,7 @@
   <div>
     <div class="main-header">
       <h2>Tasks</h2>
+      <button @click="onAddButtonClick" class="add-button">Add</button>
     </div>
     <div>
       <ul class="task-board">
@@ -38,17 +39,41 @@ export default defineComponent({
     // const closedTasks = tasks.value.filter(
     //   (t) => t.status === TaskStatus.CLOSED
     // );
+
+    const onAddButtonClick = () => {
+      // TODO: タスクの作成ページに遷移
+      console.log("click");
+    };
     return {
       createdTasks,
       todoTasks,
       doingTasks,
       doneTasks,
+      onAddButtonClick,
     };
   },
 });
 </script>
 
 <style lang="scss" scoped>
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add-button {
+  padding: 12px;
+  margin: 12px;
+  font-size: 1.2rem;
+  background-color: blue;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
 .task-board {
   display: flex;
 }

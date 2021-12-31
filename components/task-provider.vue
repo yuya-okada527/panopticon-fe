@@ -5,6 +5,7 @@
         {{ state.provider.name }}
       </div>
       <SyncIcon @click="sync" />
+      <DeleteButton @click="deleteProvider" />
     </div>
     <div>URL : {{ state.provider.provider_url }}</div>
     <div>
@@ -51,9 +52,18 @@ export default defineComponent({
       state.token = "";
       state.userName = "";
     };
+    const deleteProvider = async () => {
+      await useFetch(
+        ApiUrls.getTaskProviderUrl(route.params.project_id, props.provider.id),
+        {
+          method: "DELETE",
+        }
+      );
+    };
     return {
       state,
       sync,
+      deleteProvider,
     };
   },
 });

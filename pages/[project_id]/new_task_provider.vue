@@ -57,7 +57,7 @@ export default defineComponent({
         body: {
           name: state.name,
           provider_kind: "github",
-          oraganization: state.organization,
+          organization: state.organization,
           repository: state.repository,
         },
       });

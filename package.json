@@ -11,6 +11,7 @@
     "sass": "^1.45.1"
   },
   "dependencies": {
+    "dompurify": "^2.3.4",
     "marked": "^4.0.8"
   }
 }

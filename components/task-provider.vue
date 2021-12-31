@@ -69,6 +69,7 @@ export default defineComponent({
 }
 .provider-card {
   display: block;
+  margin: 12px 0;
   padding: 12px;
   border-radius: 8px;
   background-color: rgba(200, 200, 200, 0.5);

@@ -4,7 +4,7 @@
     <ul>
       <li v-for="task in tasks">
         <NuxtLink
-          :to="`/${$route.params.project_id}/tasks/${task.id}`"
+          :to="`/${$route.params.project_id}/task/${task.id}`"
           class="task-card"
         >
           {{ abbreviate(task.name) }}

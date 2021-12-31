@@ -2,7 +2,7 @@
   <div>
     <div class="main-header">
       <h2>Tasks</h2>
-      <button @click="onAddButtonClick" class="add-button">Add</button>
+      <AddButton @click="onAddButtonClick" />
     </div>
     <div>
       <ul class="task-board">
@@ -18,6 +18,7 @@
 <script lang="ts">
 import TaskStatus from "~~/models/static/task-status";
 import ApiUrls from "~~/network/static/api-urls";
+import AddButton from "~~/components/add-button.vue";
 
 export default defineComponent({
   async setup() {
@@ -40,7 +41,6 @@ export default defineComponent({
     // const closedTasks = tasks.value.filter(
     //   (t) => t.status === TaskStatus.CLOSED
     // );
-
     const onAddButtonClick = () => {
       router.push(`/${route.params.project_id}/new_task`);
     };
@@ -52,6 +52,7 @@ export default defineComponent({
       onAddButtonClick,
     };
   },
+  components: { AddButton },
 });
 </script>
 

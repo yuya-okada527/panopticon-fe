@@ -5,12 +5,7 @@
     </div>
     <ul class="provider-cards">
       <li v-for="provider in state.taskProviders">
-        <div class="provider-card">
-          <div>
-            {{ provider.name }}
-          </div>
-          <div>URL: {{ provider.provider_url }}</div>
-        </div>
+        <TaskProvider :provider="provider" />
       </li>
     </ul>
   </div>
@@ -43,11 +38,5 @@ export default defineComponent({
 <style lang="scss" scoped>
 .provider-cards {
   width: 640px;
-}
-.provider-card {
-  display: block;
-  padding: 12px;
-  border-radius: 8px;
-  background-color: rgba(200, 200, 200, 0.5);
 }
 </style>

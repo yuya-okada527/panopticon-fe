@@ -6,7 +6,16 @@
     </div>
     <div>
       <ul class="task-board">
-        <li><TaskList status="Created" :tasks="createdTasks" /></li>
+        <li>
+          <TaskList
+            status="Created"
+            :tasks="createdTasks"
+            @drop="dropTask($event, 'todo')"
+            @dragover.prevent
+            @dragenter.prevent
+            @dragstart="drag($event)"
+          />
+        </li>
         <li><TaskList status="Todo" :tasks="todoTasks" /></li>
         <li><TaskList status="Doing" :tasks="doingTasks" /></li>
         <li><TaskList status="Done" :tasks="doneTasks" /></li>
@@ -44,12 +53,22 @@ export default defineComponent({
     const onAddButtonClick = () => {
       router.push(`/${route.params.project_id}/new_task`);
     };
+    const dropTask = (event, dropTaskKind) => {
+      console.log(dropTaskKind);
+    };
+    const drag = (event) => {
+      // TODO: datatracnsferを定義
+      console.log("drag: " + JSON.stringify(event));
+      console.log(event);
+    };
     return {
       createdTasks,
       todoTasks,
       doingTasks,
       doneTasks,
       onAddButtonClick,
+      dropTask,
+      drag,
     };
   },
   components: { AddButton },

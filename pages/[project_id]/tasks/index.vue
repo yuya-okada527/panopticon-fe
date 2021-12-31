@@ -16,17 +16,13 @@
 
 <script lang="ts">
 import TaskStatus from "~~/models/static/task-status";
-import ApiUrls from "~~/network/static/urls";
+import ApiUrls from "~~/network/static/api-urls";
 
 export default defineComponent({
   async setup() {
     const route = useRoute();
     const { data: tasks } = await useFetch(
-      ApiUrls.getTasksUrl(
-        Array.isArray(route.params.project_id)
-          ? route.params.project_id[0]
-          : route.params.project_id
-      )
+      ApiUrls.getTasksUrl(route.params.project_id)
     );
     // @ts-ignore
     const createdTasks = tasks.value.filter(

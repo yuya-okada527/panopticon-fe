@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import TextUtils from "~~/utils/test-utils";
+import TextUtils from "~~/utils/text-utils";
 export default defineComponent({
   props: {
     status: String,

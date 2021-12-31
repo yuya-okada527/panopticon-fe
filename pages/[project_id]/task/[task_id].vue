@@ -67,10 +67,6 @@ export default defineComponent({
         }
       );
     };
-    const onChange = (event) => {
-      console.log(state.previewMarkdown);
-      console.log(event);
-    };
     const parsedHtml = computed(() => {
       return marked(state.task.description);
     });

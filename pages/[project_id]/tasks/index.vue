@@ -62,19 +62,6 @@ export default defineComponent({
   align-items: center;
   justify-content: space-between;
 }
-.add-button {
-  padding: 12px;
-  margin: 12px;
-  font-size: 1.2rem;
-  background-color: blue;
-  border: none;
-  border-radius: 12px;
-  color: white;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.8;
-  }
-}
 .task-board {
   display: flex;
 }

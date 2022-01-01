@@ -54,7 +54,7 @@ export default defineComponent({
     );
     const state: State = reactive({
       task: task.value,
-      previewMarkdown: false,
+      previewMarkdown: true,
     });
     const onUpdateIconClick = async () => {
       await useFetch(

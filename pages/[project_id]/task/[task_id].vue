@@ -22,7 +22,7 @@
       <input v-model="state.previewMarkdown" type="checkbox" id="preview" />
     </div>
     <textarea
-      v-if="state.previewMarkdown"
+      v-if="!state.previewMarkdown"
       v-model="state.task.description"
       name="description"
       id="description"
@@ -38,6 +38,7 @@
 import ApiUrls from "~~/network/static/api-urls";
 import SyncIcon from "~~/components/sync-icon.vue";
 import { marked } from "marked";
+import DOMPurify from "dompurify";
 
 type State = {
   task: any;
@@ -68,7 +69,10 @@ export default defineComponent({
       );
     };
     const parsedHtml = computed(() => {
-      return marked(state.task.description);
+      if (!state.task.description) {
+        return "";
+      }
+      return DOMPurify.sanitize(marked(state.task.description));
     });
     return {
       state,

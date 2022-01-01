@@ -10,15 +10,38 @@
           <TaskList
             status="Created"
             :tasks="createdTasks"
-            @drop="dropTask($event, 'todo')"
+            @drop.prevent="dropTask($event, 'created')"
             @dragover.prevent
             @dragenter.prevent
-            @dragstart="drag($event)"
           />
         </li>
-        <li><TaskList status="Todo" :tasks="todoTasks" /></li>
-        <li><TaskList status="Doing" :tasks="doingTasks" /></li>
-        <li><TaskList status="Done" :tasks="doneTasks" /></li>
+        <li>
+          <TaskList
+            status="Todo"
+            :tasks="todoTasks"
+            @drop.prevent="dropTask($event, 'todo')"
+            @dragover.prevent
+            @dragenter.prevent
+          />
+        </li>
+        <li>
+          <TaskList
+            status="Doing"
+            :tasks="doingTasks"
+            @drop.prevent="dropTask($event, 'doing')"
+            @dragover.prevent
+            @dragenter.prevent
+          />
+        </li>
+        <li>
+          <TaskList
+            status="Done"
+            :tasks="doneTasks"
+            @drop.prevent="dropTask($event, 'done')"
+            @dragover.prevent
+            @dragenter.prevent
+          />
+        </li>
       </ul>
     </div>
   </div>
@@ -53,14 +76,25 @@ export default defineComponent({
     const onAddButtonClick = () => {
       router.push(`/${route.params.project_id}/new_task`);
     };
-    const dropTask = (event, dropTaskKind) => {
-      console.log(dropTaskKind);
+    const dropTask = async (event, dropTaskKind) => {
+      // @ts-ignore
+      const targetTask = tasks.value.filter(
+        (t) => t.id === Number(event.dataTransfer.getData("task-id"))
+      )[0];
+      await useFetch(
+        ApiUrls.getTaskStatusUrl(route.params.project_id, targetTask.id),
+        {
+          method: "PUT",
+          body: {
+            before_status: targetTask.status,
+            after_status: dropTaskKind,
+          },
+        }
+      );
+      // TODO: リファクタリング
+      location.reload();
     };
-    const drag = (event) => {
-      // TODO: datatracnsferを定義
-      console.log("drag: " + JSON.stringify(event));
-      console.log(event);
-    };
+
     return {
       createdTasks,
       todoTasks,
@@ -68,7 +102,6 @@ export default defineComponent({
       doneTasks,
       onAddButtonClick,
       dropTask,
-      drag,
     };
   },
   components: { AddButton },

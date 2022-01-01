@@ -7,7 +7,7 @@
           :to="`/${$route.params.project_id}/task/${task.id}`"
           class="task-card"
           draggable="true"
-          @dragstart="$emit('dragstart', task.id)"
+          @dragstart="dragTask($event, task.id)"
         >
           {{ abbreviate(task.name) }}
         </NuxtLink>
@@ -31,9 +31,15 @@ export default defineComponent({
     const abbreviate = (name: string) => {
       return TextUtils.abbreviate(name, 12);
     };
+    const dragTask = (event, taskId) => {
+      event.dataTransfer.effectAllowd = "move";
+      event.dataTransfer.dropEffect = "move";
+      event.dataTransfer.setData("task-id", taskId);
+    };
     return {
       state,
       abbreviate,
+      dragTask,
     };
   },
 });

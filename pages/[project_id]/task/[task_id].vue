@@ -39,6 +39,7 @@ import ApiUrls from "~~/network/static/api-urls";
 import SyncIcon from "~~/components/sync-icon.vue";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
+import hljs from "highlight.js";
 
 type State = {
   task: any;
@@ -68,6 +69,12 @@ export default defineComponent({
         }
       );
     };
+    marked.setOptions({
+      langPrefix: "",
+      highlight: function (code, lang) {
+        return hljs.highlightAuto(code, [lang]).value;
+      },
+    });
     const parsedHtml = computed(() => {
       if (!state.task.description) {
         return "";
